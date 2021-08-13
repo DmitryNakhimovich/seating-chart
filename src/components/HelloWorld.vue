@@ -8,105 +8,112 @@
         >vue-cli documentation</a
       >.
     </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
+  </div>
+  <div class="sog-mod">
+    <div
+      class="sog-mod__item"
+      data-sog-mod-type="circle"
+      data-sog-mod-lock="0"
+      data-sog-mod-item-set="0"
+      data-sog-mod-guest-list=""
+    >
+      <div class="sog-mod__seats">
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
-          target="_blank"
-          rel="noopener"
-          >typescript</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
+          <span></span>
+        </div>
+        <div
+          data-sog-mod-seat-id=""
+          data-sog-mod-seat-status="0"
+          data-sog-mod-guest=""
+          title=""
         >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+          <span></span>
+        </div>
+      </div>
+      <div class="sog-mod__table">
+        <div class="sog-mod__icon-add"></div>
+        <div class="sog-mod__table-name"><span>Стол #</span></div>
+        <div class="sog-mod__table-btn">
+          <a
+            href="#"
+            data-sog-mod-action="list"
+            class="sog-mod__table-icon-btn icon-sog-mod__list"
+            title="Список гостей/Настройка"
+          ></a>
+          <a
+            href="#"
+            data-sog-mod-action="lock"
+            class="sog-mod__table-icon-btn icon-sog-mod__lock"
+            title="Закреплено/Открепить"
+          ></a>
+          <a
+            href="#"
+            data-sog-mod-action="unlock"
+            class="sog-mod__table-icon-btn icon-sog-mod__unlock"
+            title="Откреплено/Закрепить"
+          ></a>
+          <a
+            href="#"
+            data-sog-mod-action="remote"
+            class="sog-mod__table-icon-btn icon-sog-mod__remote"
+            title="Очистить"
+          ></a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -123,20 +130,4 @@ export default class HelloWorld extends Vue {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped lang="scss"></style>
