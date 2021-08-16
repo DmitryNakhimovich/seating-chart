@@ -10,6 +10,11 @@ import { VuesticPlugin } from "vuestic-ui";
 createApp(App)
   .use(store)
   .use(vuetify)
-  .use(VuesticPlugin)
+  .use(VuesticPlugin, {
+    colors: {
+      primary: "#8BDCD5",
+      secondary: "#002c85",
+    },
+  })
   .use(DraggablePlugin)
   .mount("#app");

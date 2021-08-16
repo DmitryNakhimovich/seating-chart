@@ -1,16 +1,5 @@
 <template>
-  <v-container fluid class="main-bg">
-    <v-row>
-      <v-col sm="4">
-        123
-        <v-text-field
-          counter="25"
-          hint="This field uses counter prop"
-          label="Regular"
-        ></v-text-field>
-      </v-col>
-    </v-row>
-  </v-container>
+  <Header :userData="activeData" />
 
   <v-container fluid class="main-bg">
     <v-row>
@@ -40,20 +29,23 @@ import { Options, Vue } from "vue-class-component";
 import TableCircleSmall from "@/components/constructor/components/figures/TableCircleSmall.vue";
 import Vue3SimpleHtml2pdf from "vue3-simple-html2pdf/src/vue3-simple-html2pdf.vue";
 import { IUserData } from "@/components/constructor/types";
+import Header from "@/components/constructor/components/header/Header.vue";
+import { Model } from "vue-property-decorator";
 
 @Options({
   name: "SeatingConstructor",
   components: {
+    Header,
     TableCircleSmall,
     Vue3SimpleHtml2pdf,
   },
 })
 export default class extends Vue {
+  @Model("userData") activeData!: IUserData;
+
   $refs!: {
     constructorPDF: any;
   };
-  userData!: IUserData | null;
-
   exportFilename = "heeheee";
   pdfOptions = {
     margin: 0,
@@ -72,9 +64,10 @@ export default class extends Vue {
       orientation: "landscape",
     },
   };
-
   downloadPDF() {
     this.$refs.constructorPDF.download();
   }
 }
 </script>
+
+<style scoped lang="scss"></style>
