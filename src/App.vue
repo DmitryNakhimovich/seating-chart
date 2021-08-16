@@ -1,13 +1,20 @@
 <template>
   <v-app>
     <v-main>
-      <router-view />
+      <home />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
+import Home from "@/views/Home.vue";
 
-export default class App extends Vue {}
+@Options({
+  name: "App",
+  components: {
+    Home,
+  },
+})
+export default class extends Vue {}
 </script>

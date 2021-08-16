@@ -1,8 +1,15 @@
+import "vuestic-ui/dist/vuestic-ui.css";
 import "@/styles/styles.scss";
 import { createApp } from "vue";
 import vuetify from "./plugins/vuetify";
-import App from "./App.vue";
-import router from "./router";
 import store from "./store";
+import App from "@/App.vue";
+import { DraggablePlugin } from "@braks/revue-draggable";
+import { VuesticPlugin } from "vuestic-ui";
 
-createApp(App).use(router).use(store).use(vuetify).mount("#app");
+createApp(App)
+  .use(store)
+  .use(vuetify)
+  .use(VuesticPlugin)
+  .use(DraggablePlugin)
+  .mount("#app");
