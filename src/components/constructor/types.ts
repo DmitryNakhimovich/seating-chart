@@ -6,7 +6,7 @@ export interface IUserData {
   tableType?: TABLE_TYPE;
   tableSize: number;
   sceneType: SCENE_TYPE;
-  data: ISeatingData;
+  data: ISeatingData[];
 }
 export enum SEATING_TYPE {
   TYPED = "typed",
@@ -24,8 +24,12 @@ export enum SEATING_PLAN {
   ROWS = "rows",
 }
 export enum TABLE_TYPE {
-  CIRCLE = "circle",
-  SQUARE = "square",
+  CIRCLE_SMALL = "circle_small",
+  CIRCLE_LARGE = "circle_large",
+  SQUARE_SMALL = "square_small",
+  RECT_5 = "react_5",
+  RECT_8 = "react_8",
+  RECT_12 = "react_12",
 }
 export enum SCENE_TYPE {
   TOP = "top",
@@ -34,5 +38,25 @@ export enum SCENE_TYPE {
   LEFT = "left",
 }
 export interface ISeatingData {
+  posX: number;
+  posY: number;
+  tableIndex: number;
+  isLocked: boolean;
+  users: IUser[];
   [key: string]: any;
+}
+export interface IUser {
+  userIndex: number;
+  isLocked: boolean;
+  name: string;
+  id: number | string;
+  [key: string]: any;
+}
+export interface ISeatingTablePosition {
+  [key: string]: {
+    posX: number;
+    posY: number;
+    tableIndex: number;
+    tableType: TABLE_TYPE;
+  }[];
 }

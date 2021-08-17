@@ -30,7 +30,22 @@ export default class extends Vue {
       seatingPlan: SEATING_PLAN.ENG,
       tableSize: 2,
       sceneType: SCENE_TYPE.TOP,
-      data: {},
+      data: [
+        {
+          posX: 20,
+          posY: 20,
+          tableIndex: 0,
+          isLocked: false,
+          users: [],
+        },
+        {
+          posX: 220,
+          posY: 220,
+          tableIndex: 1,
+          isLocked: false,
+          users: [],
+        },
+      ],
     };
   }
 }

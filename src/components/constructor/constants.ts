@@ -1,7 +1,9 @@
 import {
+  ISeatingTablePosition,
   SCENE_TYPE,
   SEATING_PLAN,
   SEATING_TYPE,
+  TABLE_TYPE,
 } from "@/components/constructor/types";
 
 export const ERROR_TEXT = {
@@ -74,4 +76,11 @@ export const SCENE_TYPE_OPTIONS = [
     value: SCENE_TYPE.LEFT,
     text: "Слева",
   },
+];
+
+export const SEATING_TABLE_POSITION: ISeatingTablePosition = {};
+SEATING_TABLE_POSITION[SEATING_PLAN.ENG] = [
+  { tableIndex: 0, posX: 0, posY: 0, tableType: TABLE_TYPE.SQUARE_SMALL },
+  { tableIndex: 1, posX: 300, posY: 0, tableType: TABLE_TYPE.SQUARE_SMALL },
+  { tableIndex: 2, posX: 150, posY: 150, tableType: TABLE_TYPE.SQUARE_SMALL },
 ];
