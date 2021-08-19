@@ -1,20 +1,17 @@
-import "vuestic-ui/dist/vuestic-ui.css";
 import "@/styles/styles.scss";
+import "bootstrap";
 import { createApp } from "vue";
 import vuetify from "./plugins/vuetify";
 import store from "./store";
 import App from "@/App.vue";
 import { DraggablePlugin } from "@braks/revue-draggable";
-import { VuesticPlugin } from "vuestic-ui";
+import PanZoomPlugin from "vue-panzoom/src/main";
+import Multiselect from "@vueform/multiselect";
 
 createApp(App)
   .use(store)
   .use(vuetify)
-  .use(VuesticPlugin, {
-    colors: {
-      primary: "#8BDCD5",
-      secondary: "#002c85",
-    },
-  })
+  .component("va-select", Multiselect)
   .use(DraggablePlugin)
+  .use(PanZoomPlugin)
   .mount("#app");

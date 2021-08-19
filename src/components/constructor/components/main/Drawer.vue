@@ -1,13 +1,17 @@
 <template>
   <div class="drawer-container">
-    <div class="drawer-wrapper">
-      <drawer-item
-        v-for="table in activeData.data"
-        :key="table.tableIndex"
-        :tableData="table"
-        :tableType="tableType(table)"
-      />
-    </div>
+    <panZoom ref="panZoom" selector="#drawer" :options="panZoomOptions">
+      <div id="drawer" class="drawer-wrapper">
+        <drawer-item
+          v-for="table in activeData.data"
+          :key="table.tableIndex"
+          :tableData="table"
+          :tableType="tableType(table)"
+          @dragstart="handleDragStart"
+          @dragend="handleDragEnd"
+        />
+      </div>
+    </panZoom>
   </div>
 </template>
 
@@ -19,7 +23,7 @@ import {
   SEATING_TYPE,
   TABLE_TYPE,
 } from "@/components/constructor/types";
-import { Model } from "vue-property-decorator";
+import { Model, Ref } from "vue-property-decorator";
 import DrawerItem from "@/components/constructor/components/main/DrawerItem.vue";
 import { SEATING_TABLE_POSITION } from "@/components/constructor/constants";
 import _ from "lodash";
@@ -30,6 +34,13 @@ import _ from "lodash";
 })
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;
+  @Ref() readonly panZoom!: any;
+  panZoomOptions = {
+    initialZoom: 1,
+    initialX: 0,
+    initialY: 0,
+    autocenter: false,
+  };
 
   tableType(table: ISeatingData) {
     let res;
@@ -44,6 +55,12 @@ export default class extends Vue {
     }
     return res ?? TABLE_TYPE.SQUARE_SMALL;
   }
+  handleDragStart() {
+    this.panZoom.$panZoomInstance.pause();
+  }
+  handleDragEnd() {
+    this.panZoom.$panZoomInstance.resume();
+  }
 }
 </script>
 
@@ -51,7 +68,6 @@ export default class extends Vue {
 .drawer-container {
   display: block;
   overflow: hidden;
-  overflow-x: auto;
   border: 2px solid #ffffff;
   border-radius: 7px;
 }
@@ -60,5 +76,6 @@ export default class extends Vue {
   position: relative;
   height: 600px;
   min-width: 600px;
+  background-color: #ffffff;
 }
 </style>

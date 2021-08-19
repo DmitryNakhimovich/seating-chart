@@ -1,4 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+$primary: #8bdcd5;
+@import "~bootstrap/scss/bootstrap";
+@import "~@vueform/multiselect/themes/default.css";
 
 #app {
   font-family: "Tahoma", serif;
@@ -7,11 +12,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --ms-option-bg-selected: #8bdcd5;
+  --ms-option-bg-selected-pointed: rgba(3, 116, 134, 0.9);
+}
+
 .main-bg {
   background-color: #efefef;
   margin-bottom: 20px;
 }
+.form-label-group {
+  display: block;
+
+  .form-control {
+    box-shadow: none !important;
+    min-height: calc(
+      var(--ms-border-width, 1px) * 2 + var(--ms-font-size, 1rem) *
+        var(--ms-line-height, 1.375) + var(--ms-py, 0.5rem) * 2
+    );
+    &:focus {
+      border-color: #8bdcd5;
+    }
+  }
+
+  .multiselect {
+    &.is-active {
+      box-shadow: none;
+      border-color: #8bdcd5;
+    }
+  }
+}
 .header-input-title {
   display: block;
   margin-bottom: 7px;
+}
+.d-none {
+  display: none;
 }

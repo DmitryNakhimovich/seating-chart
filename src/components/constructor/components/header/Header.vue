@@ -1,10 +1,12 @@
 <template>
   <v-container fluid class="main-bg">
-    <type-selector :userData="activeData" />
+    <form class="needs-validation">
+      <type-selector :userData="activeData" />
 
-    <v-divider class="divider" thickness="2" />
+      <v-divider class="divider" thickness="4" />
 
-    <plan-typed :userData="activeData" />
+      <plan-typed :userData="activeData" />
+    </form>
   </v-container>
 </template>
 
@@ -26,6 +28,7 @@ export default class extends Vue {
 
 <style scoped lang="scss">
 .divider {
+  opacity: 1;
   border-color: #ffffff;
   margin-top: 20px;
   margin-bottom: 20px;

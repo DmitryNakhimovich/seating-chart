@@ -19,7 +19,7 @@
 import { Options, Vue } from "vue-class-component";
 import Vue3SimpleHtml2pdf from "vue3-simple-html2pdf/src/vue3-simple-html2pdf.vue";
 import { IUserData } from "@/components/constructor/types";
-import { Model } from "vue-property-decorator";
+import { Model, Ref } from "vue-property-decorator";
 import Drawer from "@/components/constructor/components/main/Drawer.vue";
 
 @Options({
@@ -31,10 +31,8 @@ import Drawer from "@/components/constructor/components/main/Drawer.vue";
 })
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;
+  @Ref() readonly constructorPDF!: any;
 
-  $refs!: {
-    constructorPDF: any;
-  };
   exportFilename = "heeheee";
   pdfOptions = {
     margin: 0,
@@ -55,7 +53,7 @@ export default class extends Vue {
   };
 
   downloadPDF() {
-    this.$refs.constructorPDF.download();
+    this.constructorPDF.download();
   }
 }
 </script>

@@ -1,24 +1,19 @@
 <template>
   <v-row justify="center">
     <v-col sm="4" cols="12">
-      <label>
+      <label class="form-label-group">
         <span class="header-input-title">Название рассадки</span>
-        <va-input
-          v-model="activeData.title"
-          :rules="[(value) => value.length || errors.inputNotEmpty]"
-        />
+        <input :class="classRulesTitle" v-model="activeData.title" required />
       </label>
     </v-col>
     <v-col sm="4" cols="12">
-      <label>
+      <label class="form-label-group">
         <span class="header-input-title">Тип рассадки</span>
         <va-select
-          ref="seatingTypeSelect"
           v-model="activeData.seatingType"
+          label="text"
           :options="options"
-          text-by="text"
-          value-by="value"
-          @update:modelValue="handleSelect"
+          :canClear="false"
         />
       </label>
     </v-col>
@@ -29,24 +24,20 @@
 import { Options, Vue } from "vue-class-component";
 import { IUserData } from "@/components/constructor/types";
 import { Model } from "vue-property-decorator";
-import {
-  ERROR_TEXT,
-  SEATING_TYPE_OPTIONS,
-} from "@/components/constructor/constants";
+import { SEATING_TYPE_OPTIONS } from "@/components/constructor/constants";
 
 @Options({
   name: "TypeSelector",
 })
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;
-  errors = ERROR_TEXT;
   options = SEATING_TYPE_OPTIONS;
-  $refs!: {
-    seatingTypeSelect: HTMLElement;
-  };
 
-  handleSelect() {
-    this.$refs.seatingTypeSelect.blur();
+  get classRulesTitle() {
+    return [
+      !this.activeData.title.length ? "is-invalid" : "",
+      "form-control",
+    ].join(" ");
   }
 }
 </script>
