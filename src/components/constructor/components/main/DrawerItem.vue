@@ -1,6 +1,6 @@
 <template>
   <Draggable @start="$emit('dragstart')" @stop="$emit('dragend')">
-    <component :is="tableType" :tableData="activeData" />
+    <component :is="tableType" :tableData="activeData" :tableType="tableType" />
   </Draggable>
 </template>
 
@@ -18,7 +18,7 @@ import figures from "@/components/constructor/components/figures";
 })
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
-  @Prop() tableType!: TABLE_TYPE;
+  @Prop() readonly tableType!: TABLE_TYPE;
 }
 </script>
 

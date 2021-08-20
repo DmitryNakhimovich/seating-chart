@@ -4,7 +4,7 @@
       class="sog-mod__item"
       data-sog-mod-type="circle"
       data-sog-mod-lock="0"
-      data-sog-mod-item-set="0"
+      data-sog-mod-item-set="1"
       data-sog-mod-guest-list=""
     >
       <div class="sog-mod__seats">

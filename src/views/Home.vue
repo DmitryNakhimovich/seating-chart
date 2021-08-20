@@ -37,6 +37,7 @@ export default class extends Vue {
           tableIndex: 0,
           isLocked: false,
           users: [],
+          seatsSize: 8,
         },
         {
           posX: 220,
@@ -44,6 +45,7 @@ export default class extends Vue {
           tableIndex: 1,
           isLocked: false,
           users: [],
+          seatsSize: 8,
         },
       ],
     };

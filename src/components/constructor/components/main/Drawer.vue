@@ -7,6 +7,7 @@
           :key="table.tableIndex"
           :tableData="table"
           :tableType="tableType(table)"
+          :tableStatic="tableStatic(table)"
           @dragstart="handleDragStart"
           @dragend="handleDragEnd"
         />
@@ -54,6 +55,22 @@ export default class extends Vue {
       res = this.activeData.tableType;
     }
     return res ?? TABLE_TYPE.SQUARE_SMALL;
+  }
+  tableStatic(table: ISeatingData) {
+    let res;
+    if (this.activeData.seatingType === SEATING_TYPE.TYPED) {
+      res = _.get(
+        SEATING_TABLE_POSITION,
+        [this.activeData.seatingPlan!],
+        []
+      )?.find((t) => t.tableIndex === table.tableIndex);
+    } else {
+      res = {
+        tableIndex: table.tableIndex,
+        tableType: this.activeData.tableType,
+      };
+    }
+    return res ?? null;
   }
   handleDragStart() {
     this.panZoom.$panZoomInstance.pause();

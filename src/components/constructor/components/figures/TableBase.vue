@@ -2,115 +2,30 @@
   <div class="sog-mod">
     <div
       class="sog-mod__item"
-      data-sog-mod-type="circle"
-      data-sog-mod-lock="0"
+      :data-sog-mod-type="tableType"
+      :data-sog-mod-lock="Number(activeData.isLocked)"
       data-sog-mod-item-set="0"
     >
-      <div class="sog-mod__seats">
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-        <div
-          data-sog-mod-seat-id=""
-          data-sog-mod-seat-status="0"
-          data-sog-mod-guest=""
-          title=""
-        >
-          <span></span>
-        </div>
-      </div>
-      <div class="sog-mod__table">
-        <div class="sog-mod__icon-add"></div>
-        <div class="sog-mod__table-name"><span>Стол #</span></div>
-        <div class="sog-mod__table-btn">
-          <a
-            href="#"
-            data-sog-mod-action="list"
-            class="sog-mod__table-icon-btn icon-sog-mod__list"
-            title="Список гостей/Настройка"
-          ></a>
-          <a
-            href="#"
-            data-sog-mod-action="lock"
-            class="sog-mod__table-icon-btn icon-sog-mod__lock"
-            title="Закреплено/Открепить"
-          ></a>
-          <a
-            href="#"
-            data-sog-mod-action="unlock"
-            class="sog-mod__table-icon-btn icon-sog-mod__unlock"
-            title="Откреплено/Закрепить"
-          ></a>
-          <a
-            href="#"
-            data-sog-mod-action="remote"
-            class="sog-mod__table-icon-btn icon-sog-mod__remote"
-            title="Очистить"
-          ></a>
-        </div>
-      </div>
+      <table-seats :tableData="activeData" />
+      <table-controls />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import TableControls from "@/components/constructor/components/figures/TableControls.vue";
+import TableSeats from "@/components/constructor/components/figures/TableSeats.vue";
+import { Model, Prop } from "vue-property-decorator";
+import { ISeatingData, TABLE_TYPE } from "@/components/constructor/types";
 
 @Options({
   name: "TableBase",
+  components: { TableSeats, TableControls },
 })
-export default class extends Vue {}
+export default class extends Vue {
+  @Model("tableData") activeData!: ISeatingData;
+  @Prop() readonly tableType!: TABLE_TYPE;
+  @Prop() readonly tableSeatsSize!: number;
+}
 </script>
