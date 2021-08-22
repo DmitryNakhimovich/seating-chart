@@ -6,8 +6,6 @@
           v-for="table in activeData.data"
           :key="table.tableIndex"
           :tableData="table"
-          :tableType="tableType(table)"
-          :tableStatic="tableStatic(table)"
           @dragstart="handleDragStart"
           @dragend="handleDragEnd"
         />

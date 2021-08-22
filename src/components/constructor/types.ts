@@ -31,7 +31,7 @@ export enum TABLE_TYPE {
   RECT_8 = "react_8",
   RECT_12 = "react_12",
 }
-export enum TABLE_TYPE_SIZE {
+export enum TABLE_SIZE {
   CIRCLE_SMALL = 8,
   CIRCLE_LARGE = 16,
   SQUARE_SMALL = 8,
@@ -52,13 +52,15 @@ export interface ISeatingData {
   isLocked: boolean;
   users: IUser[];
   seatsSize: number;
+  tableType: TABLE_TYPE;
   [key: string]: any;
 }
 export interface IUser {
   userIndex: number;
   isLocked: boolean;
-  name: string;
+  name: string | number;
   id: number | string;
+  isEmpty?: boolean;
   [key: string]: any;
 }
 export interface ISeatingTablePosition {

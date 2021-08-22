@@ -10,6 +10,7 @@ import {
   SCENE_TYPE,
   SEATING_PLAN,
   SEATING_TYPE,
+  TABLE_TYPE,
 } from "@/components/constructor/types";
 
 @Options({
@@ -38,6 +39,7 @@ export default class extends Vue {
           isLocked: false,
           users: [],
           seatsSize: 8,
+          tableType: TABLE_TYPE.CIRCLE_SMALL,
         },
         {
           posX: 220,
@@ -46,6 +48,7 @@ export default class extends Vue {
           isLocked: false,
           users: [],
           seatsSize: 8,
+          tableType: TABLE_TYPE.CIRCLE_SMALL,
         },
       ],
     };

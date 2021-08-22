@@ -2,7 +2,7 @@
   <div class="sog-mod">
     <div
       class="sog-mod__item"
-      :data-sog-mod-type="tableType"
+      :data-sog-mod-type="activeData.tableType"
       :data-sog-mod-lock="Number(activeData.isLocked)"
       data-sog-mod-item-set="0"
     >
@@ -16,8 +16,8 @@
 import { Options, Vue } from "vue-class-component";
 import TableControls from "@/components/constructor/components/figures/TableControls.vue";
 import TableSeats from "@/components/constructor/components/figures/TableSeats.vue";
-import { Model, Prop } from "vue-property-decorator";
-import { ISeatingData, TABLE_TYPE } from "@/components/constructor/types";
+import { Model } from "vue-property-decorator";
+import { ISeatingData } from "@/components/constructor/types";
 
 @Options({
   name: "TableBase",
@@ -25,7 +25,5 @@ import { ISeatingData, TABLE_TYPE } from "@/components/constructor/types";
 })
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
-  @Prop() readonly tableType!: TABLE_TYPE;
-  @Prop() readonly tableSeatsSize!: number;
 }
 </script>
