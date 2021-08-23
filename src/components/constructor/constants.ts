@@ -3,6 +3,7 @@ import {
   SCENE_TYPE,
   SEATING_PLAN,
   SEATING_TYPE,
+  TABLE_SIZE,
   TABLE_TYPE,
 } from "@/components/constructor/types";
 
@@ -76,11 +77,82 @@ export const SCENE_TYPE_OPTIONS = [
     value: SCENE_TYPE.LEFT,
     text: "Слева",
   },
+  {
+    value: SCENE_TYPE.NONE,
+    text: "Отсутствует",
+  },
+];
+export const TABLE_TYPE_OPTIONS = [
+  {
+    value: TABLE_TYPE.SQUARE_SMALL,
+    text: "Квадратный малый стол",
+  },
+  {
+    value: TABLE_TYPE.CIRCLE_SMALL,
+    text: "Круглый малый стол",
+  },
+  {
+    value: TABLE_TYPE.CIRCLE_LARGE,
+    text: "Круглый большой стол",
+  },
+  {
+    value: TABLE_TYPE.RECT_5,
+    text: "Прямоугольный малый стол",
+  },
+  {
+    value: TABLE_TYPE.RECT_8,
+    text: "Прямоугольный средний стол",
+  },
+  {
+    value: TABLE_TYPE.RECT_12,
+    text: "Прямоугольный большой стол",
+  },
 ];
 
 export const SEATING_TABLE_POSITION: ISeatingTablePosition = {};
 SEATING_TABLE_POSITION[SEATING_PLAN.ENG] = [
-  { tableIndex: 0, posX: 0, posY: 0, tableType: TABLE_TYPE.SQUARE_SMALL },
-  { tableIndex: 1, posX: 300, posY: 0, tableType: TABLE_TYPE.SQUARE_SMALL },
-  { tableIndex: 2, posX: 150, posY: 150, tableType: TABLE_TYPE.SQUARE_SMALL },
+  {
+    tableIndex: 0,
+    posX: 0,
+    posY: 0,
+    tableType: TABLE_TYPE.SQUARE_SMALL,
+    seatsSize: TABLE_SIZE.SQUARE_SMALL,
+  },
+  {
+    tableIndex: 1,
+    posX: 300,
+    posY: 0,
+    tableType: TABLE_TYPE.SQUARE_SMALL,
+    seatsSize: TABLE_SIZE.SQUARE_SMALL,
+  },
+  {
+    tableIndex: 2,
+    posX: 150,
+    posY: 150,
+    tableType: TABLE_TYPE.SQUARE_SMALL,
+    seatsSize: TABLE_SIZE.SQUARE_SMALL,
+  },
+];
+SEATING_TABLE_POSITION[SEATING_PLAN.ITA] = [
+  {
+    tableIndex: 0,
+    posX: 0,
+    posY: 0,
+    tableType: TABLE_TYPE.CIRCLE_SMALL,
+    seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+  },
+  {
+    tableIndex: 1,
+    posX: 300,
+    posY: 0,
+    tableType: TABLE_TYPE.CIRCLE_SMALL,
+    seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+  },
+  {
+    tableIndex: 2,
+    posX: 0,
+    posY: 150,
+    tableType: TABLE_TYPE.CIRCLE_SMALL,
+    seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+  },
 ];

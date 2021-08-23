@@ -26,15 +26,16 @@ export default class extends Vue {
 
   get usersList() {
     let res = _.sortBy(this.tableData.users, ["userIndex"]);
-    const len = res.length ?? 0;
-    for (let idx = len; idx < this.tableData.seatsSize; idx += 1) {
-      res.push({
-        id: idx,
-        userIndex: idx,
-        name: idx,
-        isEmpty: true,
-        isLocked: false,
-      });
+    for (let idx = 0; idx < this.tableData.seatsSize; idx += 1) {
+      if (res[idx]?.userIndex !== idx) {
+        res.splice(idx, 0, {
+          id: idx,
+          userIndex: idx,
+          name: idx,
+          isEmpty: true,
+          isLocked: false,
+        });
+      }
     }
     return res;
   }

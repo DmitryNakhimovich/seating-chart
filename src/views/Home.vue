@@ -1,5 +1,9 @@
 <template>
-  <seating-constructor :user-data="activeData" />
+  <div v-if="isLoading" class="spinner-border text-primary">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <seating-constructor v-if="isLoaded" :user-data="activeData" />
 </template>
 
 <script lang="ts">
@@ -22,8 +26,14 @@ import {
 export default class extends Vue {
   userData: IUserData[] = [];
   activeData: IUserData | null = null;
+  isLoading = true;
+  isLoaded = false;
 
-  beforeMount() {
+  async beforeMount() {
+    //test
+    await fetch("https://jsonplaceholder.typicode.com/posts");
+    this.isLoading = false;
+    this.isLoaded = true;
     this.activeData = {
       title: "Новая рассадка",
       createDate: new Date().getTime(),

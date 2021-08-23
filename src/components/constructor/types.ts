@@ -44,13 +44,14 @@ export enum SCENE_TYPE {
   RIGHT = "right",
   BOTTOM = "bottom",
   LEFT = "left",
+  NONE = "none",
 }
 export interface ISeatingData {
   posX: number;
   posY: number;
   tableIndex: number;
-  isLocked: boolean;
-  users: IUser[];
+  isLocked?: boolean;
+  users?: IUser[];
   seatsSize: number;
   tableType: TABLE_TYPE;
   [key: string]: any;
@@ -64,11 +65,5 @@ export interface IUser {
   [key: string]: any;
 }
 export interface ISeatingTablePosition {
-  [key: string]: ISeatingTablePositionData[];
-}
-export interface ISeatingTablePositionData {
-  posX: number;
-  posY: number;
-  tableIndex: number;
-  tableType: TABLE_TYPE;
+  [key: string]: ISeatingData[];
 }
