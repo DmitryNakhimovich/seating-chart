@@ -50,10 +50,10 @@ export interface ISeatingData {
   posX: number;
   posY: number;
   tableIndex: number;
-  isLocked?: boolean;
-  users?: IUser[];
   seatsSize: number;
   tableType: TABLE_TYPE;
+  isLocked?: boolean;
+  users?: IUser[];
   [key: string]: any;
 }
 export interface IUser {

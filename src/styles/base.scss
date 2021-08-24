@@ -49,3 +49,8 @@ $primary: #8bdcd5;
 .d-none {
   display: none;
 }
+.revue-draggable-dragging {
+  .sog-mod {
+    border: 1px solid $primary;
+  }
+}

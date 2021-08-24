@@ -7,8 +7,9 @@
           :key="table.tableIndex"
           :tableData="table"
           :tableActive="true"
-          @dragstart="handleDragStart"
-          @dragend="handleDragEnd"
+          @start="handleDragStart"
+          @stop="handleDragEnd"
+          @delete-table="handleTableDelete"
         />
       </div>
     </panZoom>
@@ -17,16 +18,9 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import {
-  ISeatingData,
-  IUserData,
-  SEATING_TYPE,
-  TABLE_TYPE,
-} from "@/components/constructor/types";
+import { IUserData } from "@/components/constructor/types";
 import { Model, Ref } from "vue-property-decorator";
 import DrawerItem from "@/components/constructor/components/main/DrawerItem.vue";
-import { SEATING_TABLE_POSITION } from "@/components/constructor/constants";
-import _ from "lodash";
 
 @Options({
   name: "Drawer",
@@ -42,40 +36,17 @@ export default class extends Vue {
     autocenter: false,
   };
 
-  tableType(table: ISeatingData) {
-    let res;
-    if (this.activeData.seatingType === SEATING_TYPE.TYPED) {
-      res = _.get(
-        SEATING_TABLE_POSITION,
-        [this.activeData.seatingPlan!],
-        []
-      )?.find((t) => t.tableIndex === table.tableIndex)?.tableType;
-    } else {
-      res = this.activeData.tableType;
-    }
-    return res ?? TABLE_TYPE.SQUARE_SMALL;
-  }
-  tableStatic(table: ISeatingData) {
-    let res;
-    if (this.activeData.seatingType === SEATING_TYPE.TYPED) {
-      res = _.get(
-        SEATING_TABLE_POSITION,
-        [this.activeData.seatingPlan!],
-        []
-      )?.find((t) => t.tableIndex === table.tableIndex);
-    } else {
-      res = {
-        tableIndex: table.tableIndex,
-        tableType: this.activeData.tableType,
-      };
-    }
-    return res ?? null;
-  }
   handleDragStart() {
     this.panZoom.$panZoomInstance.pause();
   }
   handleDragEnd() {
     this.panZoom.$panZoomInstance.resume();
+  }
+  handleTableDelete(tableIndex: number) {
+    this.activeData.data = this.activeData.data?.filter(
+      (t) => t.tableIndex !== tableIndex
+    );
+    this.activeData.tableSize = this.activeData.tableSize - 1;
   }
 }
 </script>

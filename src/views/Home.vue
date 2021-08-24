@@ -49,7 +49,7 @@ export default class extends Vue {
           isLocked: false,
           users: [],
           seatsSize: 8,
-          tableType: TABLE_TYPE.CIRCLE_SMALL,
+          tableType: TABLE_TYPE.SQUARE_SMALL,
         },
         {
           posX: 220,
@@ -58,7 +58,7 @@ export default class extends Vue {
           isLocked: false,
           users: [],
           seatsSize: 8,
-          tableType: TABLE_TYPE.CIRCLE_SMALL,
+          tableType: TABLE_TYPE.SQUARE_SMALL,
         },
       ],
     };

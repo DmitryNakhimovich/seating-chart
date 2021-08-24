@@ -1,28 +1,32 @@
 <template>
   <div class="sog-mod__table">
     <div class="sog-mod__icon-add"></div>
-    <div class="sog-mod__table-name"><span>Стол #</span></div>
+    <div class="sog-mod__table-name">
+      <span>Стол {{ activeData.tableIndex + 1 }}</span>
+    </div>
     <div class="sog-mod__table-btn">
       <span
         data-sog-mod-action="list"
         class="sog-mod__table-icon-btn icon-sog-mod__list"
         title="Список гостей/Настройка"
-        >Список гостей/Настройка</span
-      >
+      ></span>
       <span
         data-sog-mod-action="lock"
         class="sog-mod__table-icon-btn icon-sog-mod__lock"
         title="Закреплено/Открепить"
+        @click="handleLock(false)"
       ></span>
       <span
         data-sog-mod-action="unlock"
         class="sog-mod__table-icon-btn icon-sog-mod__unlock"
         title="Откреплено/Закрепить"
+        @click="handleLock(true)"
       ></span>
       <span
         data-sog-mod-action="remote"
         class="sog-mod__table-icon-btn icon-sog-mod__remote"
         title="Очистить"
+        @click="$emit('delete-table', activeData.tableIndex)"
       ></span>
     </div>
   </div>
@@ -30,9 +34,18 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { Model } from "vue-property-decorator";
+import { ISeatingData } from "@/components/constructor/types";
 
 @Options({
   name: "TableControls",
+  emits: ["delete-table"],
 })
-export default class extends Vue {}
+export default class extends Vue {
+  @Model("tableData") activeData!: ISeatingData;
+
+  handleLock(lock = false) {
+    this.activeData.isLocked = lock;
+  }
+}
 </script>
