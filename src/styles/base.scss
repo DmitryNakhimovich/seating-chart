@@ -34,12 +34,21 @@ $primary: #8bdcd5;
       border-color: #8bdcd5;
     }
   }
+}
+.multiselect {
+  &.is-active {
+    box-shadow: none !important;
+    border-color: #8bdcd5;
+  }
+}
+.guests-list {
+  min-height: 42px;
+  background-color: #efefef;
 
-  .multiselect {
-    &.is-active {
-      box-shadow: none;
-      border-color: #8bdcd5;
-    }
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 .header-input-title {
@@ -53,4 +62,14 @@ $primary: #8bdcd5;
   .sog-mod {
     border: 1px solid $primary;
   }
+}
+.v-card {
+  .v-card-title,
+  .v-card-text,
+  .v-card-subtitle {
+    padding: 10px 15px !important;
+  }
+}
+.v-dialog .v-overlay__content {
+  max-height: inherit !important;
 }

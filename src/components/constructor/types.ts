@@ -57,10 +57,10 @@ export interface ISeatingData {
   [key: string]: any;
 }
 export interface IUser {
-  userIndex: number;
-  isLocked: boolean;
   name: string | number;
   id: number | string;
+  userIndex: number;
+  isLocked?: boolean;
   isEmpty?: boolean;
   [key: string]: any;
 }

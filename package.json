@@ -12,6 +12,7 @@
     "@mdi/font": "5.9.55",
     "@popperjs/core": "^2.9.3",
     "@vueform/multiselect": "^2.1.2",
+    "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
@@ -22,6 +23,7 @@
     "vue-property-decorator": "^10.0.0-0",
     "vue-router": "^4.0.0-0",
     "vue3-simple-html2pdf": "^0.0.5",
+    "vuedraggable": "^4.1.0",
     "vuetify": "^3.0.0-alpha.0",
     "vuex": "^4.0.0-0"
   },

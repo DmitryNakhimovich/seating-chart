@@ -9,6 +9,7 @@
         data-sog-mod-action="list"
         class="sog-mod__table-icon-btn icon-sog-mod__list"
         title="Список гостей/Настройка"
+        @click="dialogUsers = true"
       ></span>
       <span
         data-sog-mod-action="lock"
@@ -29,6 +30,11 @@
         @click="$emit('delete-table', activeData.tableIndex)"
       ></span>
     </div>
+    <table-users-dialog
+      :is-open="dialogUsers"
+      :tableData="activeData"
+      @dialog-close="dialogUsers = false"
+    />
   </div>
 </template>
 
@@ -36,13 +42,18 @@
 import { Options, Vue } from "vue-class-component";
 import { Model } from "vue-property-decorator";
 import { ISeatingData } from "@/components/constructor/types";
+import TableUsersDialog from "@/components/constructor/components/figures/TableUsersDialog.vue";
 
 @Options({
   name: "TableControls",
   emits: ["delete-table"],
+  components: {
+    TableUsersDialog,
+  },
 })
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
+  dialogUsers = false;
 
   handleLock(lock = false) {
     this.activeData.isLocked = lock;

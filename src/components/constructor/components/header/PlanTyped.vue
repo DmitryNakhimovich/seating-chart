@@ -35,6 +35,7 @@
           label="text"
           :options="optionsScene"
           :canClear="false"
+          :canDeselect="false"
         />
       </label>
     </v-col>
@@ -136,7 +137,6 @@ export default class extends Vue {
                 SEATING_TABLE_POSITION[this.activeData.seatingPlan!][idx]
               )
             );
-            console.log(newData);
           }
           if (
             newData.length ===

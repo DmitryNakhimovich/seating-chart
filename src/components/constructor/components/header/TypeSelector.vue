@@ -14,6 +14,7 @@
           label="text"
           :options="options"
           :canClear="false"
+          :canDeselect="false"
         />
       </label>
     </v-col>

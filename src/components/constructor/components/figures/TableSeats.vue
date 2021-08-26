@@ -7,7 +7,7 @@
       :data-sog-mod-seat-status="Number(!user.isEmpty)"
       :title="user.name"
     >
-      <span>{{ user.name }}</span>
+      <span>{{ getUserName(user.name) }}</span>
     </div>
   </div>
 </template>
@@ -33,11 +33,19 @@ export default class extends Vue {
           userIndex: idx,
           name: idx + 1,
           isEmpty: true,
-          isLocked: false,
         });
       }
     }
     return res;
+  }
+
+  getUserName(name: string | number) {
+    return name
+      .toString()
+      .split(" ")
+      .map((c: string) => c[0]?.toUpperCase())
+      .slice(0, 2)
+      .join("");
   }
 }
 </script>

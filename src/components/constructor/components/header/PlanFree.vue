@@ -8,6 +8,7 @@
           label="text"
           :options="optionsType"
           :canClear="false"
+          :canDeselect="false"
         />
       </label>
     </v-col>
