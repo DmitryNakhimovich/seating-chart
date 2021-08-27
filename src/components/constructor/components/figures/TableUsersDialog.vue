@@ -62,8 +62,12 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="handleUsersDialog(false)">Отменить</v-btn>
-        <v-btn @click="handleUsersDialog(true)">Сохранить</v-btn>
+        <v-btn variant="outlined" @click="handleUsersDialog(false)"
+          >Отменить</v-btn
+        >
+        <v-btn variant="outlined" @click="handleUsersDialog(true)"
+          >Сохранить</v-btn
+        >
       </v-card-actions>
     </v-card>
   </v-dialog>

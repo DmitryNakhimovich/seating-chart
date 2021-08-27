@@ -2,7 +2,7 @@
   <v-container fluid class="main-bg">
     <v-row>
       <v-col>
-        <v-btn @click="downloadPDF">PDF</v-btn>
+        <v-btn variant="outlined" @click="downloadPDF">PDF</v-btn>
         <vue3-simple-html2pdf
           ref="constructorPDF"
           :options="pdfOptions"

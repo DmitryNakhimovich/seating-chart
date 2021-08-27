@@ -8,7 +8,10 @@
   <v-container v-if="!isLoading && !isSelected" fluid>
     <v-row>
       <v-col cols="12" class="text-center">
-        <v-btn @click="handleCreate" :disabled="userData.length > 0"
+        <v-btn
+          variant="outlined"
+          :disabled="userData.length > 0"
+          @click="handleCreate"
           >Создать новую рассадку</v-btn
         >
       </v-col>

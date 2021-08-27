@@ -52,8 +52,10 @@
         >
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="handlePlanDialog(false)">Отменить</v-btn>
-          <v-btn @click="handlePlanDialog(true)">Да</v-btn>
+          <v-btn variant="outlined" @click="handlePlanDialog(false)"
+            >Отменить</v-btn
+          >
+          <v-btn variant="outlined" @click="handlePlanDialog(true)">Да</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
