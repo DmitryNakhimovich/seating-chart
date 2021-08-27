@@ -1,6 +1,8 @@
 export interface IUserData {
+  id?: number;
+  projectId?: number;
   title: string;
-  createDate: string | number;
+  createDate?: string | number;
   seatingType: SEATING_TYPE;
   seatingPlan?: SEATING_PLAN;
   tableType?: TABLE_TYPE;

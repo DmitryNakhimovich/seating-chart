@@ -109,11 +109,14 @@ export default class extends Vue {
   }
 
   async getCategory() {
-    return await getGuestCategoryList(24);
+    return await getGuestCategoryList();
   }
   async getGuests() {
+    if (_.isNil(this.guestsCategory)) {
+      return [];
+    }
     const guests =
-      (await getGuestsListByCategory(24, parseInt(this.guestsCategory))) ?? [];
+      (await getGuestsListByCategory(parseInt(this.guestsCategory))) ?? [];
     return guests?.filter((g: IUser) =>
       this.guestsActive?.every((ga: IUser) => ga.id !== g.id)
     );
