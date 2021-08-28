@@ -67,6 +67,8 @@ import { Options, Vue } from "vue-class-component";
 import { IUserData, SEATING_PLAN } from "@/components/constructor/types";
 import { Model, Watch } from "vue-property-decorator";
 import {
+  MAX_TABLES,
+  MIN_TABLES,
   SCENE_TYPE_OPTIONS,
   SEATING_PLAN_OPTIONS,
   SEATING_TABLE_POSITION,
@@ -96,7 +98,7 @@ export default class extends Vue {
 
   @Watch("activeData.tableSize")
   handleTableSizeChange(newVal: any) {
-    if (_.isNumber(newVal) && newVal >= 0 && newVal <= 30) {
+    if (_.isNumber(newVal) && newVal >= 0 && newVal <= MAX_TABLES) {
       this.tableSizeActive = newVal;
     } else {
       throw new TypeError("tableSize needs to be Number type!");
@@ -123,8 +125,8 @@ export default class extends Vue {
   handleTableSize() {
     if (
       _.isNumber(this.tableSizeActive) &&
-      this.tableSizeActive >= 0 &&
-      this.tableSizeActive <= 30
+      this.tableSizeActive >= MIN_TABLES &&
+      this.tableSizeActive <= MAX_TABLES
     ) {
       if (this.activeData.tableSize < this.tableSizeActive) {
         const newData = [];

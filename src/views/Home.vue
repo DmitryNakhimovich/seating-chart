@@ -73,6 +73,7 @@ import {
   SCENE_TYPE,
   SEATING_PLAN,
   SEATING_TYPE,
+  TABLE_TYPE,
 } from "@/components/constructor/types";
 import {
   deleteConstructorData,
@@ -126,6 +127,7 @@ export default class extends Vue {
       title: "Новая рассадка",
       seatingType: SEATING_TYPE.TYPED,
       seatingPlan: SEATING_PLAN.ENG,
+      tableType: TABLE_TYPE.SQUARE_SMALL,
       tableSize: 0,
       sceneType: SCENE_TYPE.TOP,
       data: [],
