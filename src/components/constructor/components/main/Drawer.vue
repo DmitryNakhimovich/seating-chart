@@ -2,6 +2,7 @@
   <div class="drawer-container">
     <panZoom ref="panZoom" selector="#drawer" :options="panZoomOptions">
       <div id="drawer" class="drawer-wrapper">
+        <scene :type="activeData.sceneType" />
         <drawer-item
           v-for="table in activeData.data"
           :key="table.tableIndex"
@@ -21,10 +22,11 @@ import { Options, Vue } from "vue-class-component";
 import { IUserData } from "@/components/constructor/types";
 import { Model, Ref } from "vue-property-decorator";
 import DrawerItem from "@/components/constructor/components/main/DrawerItem.vue";
+import Scene from "@/components/constructor/components/main/Scene.vue";
 
 @Options({
   name: "Drawer",
-  components: { DrawerItem },
+  components: { Scene, DrawerItem },
 })
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;

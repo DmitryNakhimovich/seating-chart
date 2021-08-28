@@ -73,10 +73,10 @@ export const SCENE_TYPE_OPTIONS = [
     value: SCENE_TYPE.RIGHT,
     text: "Справа",
   },
-  {
-    value: SCENE_TYPE.BOTTOM,
-    text: "Снизу",
-  },
+  // {
+  //   value: SCENE_TYPE.BOTTOM,
+  //   text: "Снизу",
+  // },
   {
     value: SCENE_TYPE.LEFT,
     text: "Слева",
