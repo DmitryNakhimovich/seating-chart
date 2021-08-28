@@ -65,6 +65,5 @@ export default class extends Vue {
   position: relative;
   height: 600px;
   min-width: 600px;
-  background-color: #ffffff;
 }
 </style>

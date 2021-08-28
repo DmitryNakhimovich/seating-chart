@@ -79,9 +79,9 @@ export default class extends Vue {
       newData = _.cloneDeep(SEATING_TABLE_FREE[this.activeData.tableType!]);
       newData.tableIndex = next;
       newData.posX =
-        _.get(SEATING_TABLE_POSITION, [SEATING_PLAN.ITA, next])?.posX ?? 0;
+        _.get(SEATING_TABLE_POSITION, [SEATING_PLAN.ENG, next])?.posX ?? 0;
       newData.posY =
-        _.get(SEATING_TABLE_POSITION, [SEATING_PLAN.ITA, next])?.posY ?? 0;
+        _.get(SEATING_TABLE_POSITION, [SEATING_PLAN.ENG, next])?.posY ?? 0;
       this.activeData.data?.push(newData);
       this.activeData.tableSize = this.activeData.tableSize + 1;
     }

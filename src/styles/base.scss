@@ -60,7 +60,10 @@ $primary: #8bdcd5;
 }
 .revue-draggable-dragging {
   .sog-mod {
-    border: 1px solid $primary;
+    .sog-mod__table {
+      border: 1px solid $primary;
+      background: rgba(139, 220, 213, 0.5) !important;
+    }
   }
 }
 .v-card {

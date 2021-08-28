@@ -117,49 +117,117 @@ export const SEATING_TABLE_POSITION: ISeatingTablePosition = {};
 SEATING_TABLE_POSITION[SEATING_PLAN.ENG] = [
   {
     tableIndex: 0,
-    posX: 0,
-    posY: 0,
+    posX: 100,
+    posY: 80,
     tableType: TABLE_TYPE.SQUARE_SMALL,
     seatsSize: TABLE_SIZE.SQUARE_SMALL,
   },
   {
     tableIndex: 1,
-    posX: 300,
-    posY: 0,
+    posX: 820,
+    posY: 80,
     tableType: TABLE_TYPE.SQUARE_SMALL,
     seatsSize: TABLE_SIZE.SQUARE_SMALL,
   },
   {
     tableIndex: 2,
-    posX: 150,
-    posY: 150,
+    posX: 460,
+    posY: 240,
     tableType: TABLE_TYPE.SQUARE_SMALL,
     seatsSize: TABLE_SIZE.SQUARE_SMALL,
   },
 ];
+Array(9)
+  .fill(null)
+  .forEach((v: any, i: number) => {
+    SEATING_TABLE_POSITION[SEATING_PLAN.ENG].push(
+      {
+        tableIndex: (i + 1) * 3,
+        posX: 100,
+        posY: 80 + 320 * (i + 1),
+        tableType: TABLE_TYPE.SQUARE_SMALL,
+        seatsSize: TABLE_SIZE.SQUARE_SMALL,
+      },
+      {
+        tableIndex: (i + 1) * 3 + 1,
+        posX: 820,
+        posY: 80 + 320 * (i + 1),
+        tableType: TABLE_TYPE.SQUARE_SMALL,
+        seatsSize: TABLE_SIZE.SQUARE_SMALL,
+      },
+      {
+        tableIndex: (i + 1) * 3 + 2,
+        posX: 460,
+        posY: 240 + 320 * (i + 1),
+        tableType: TABLE_TYPE.SQUARE_SMALL,
+        seatsSize: TABLE_SIZE.SQUARE_SMALL,
+      }
+    );
+  });
 SEATING_TABLE_POSITION[SEATING_PLAN.ITA] = [
   {
     tableIndex: 0,
-    posX: 0,
-    posY: 0,
+    posX: 100,
+    posY: 80,
     tableType: TABLE_TYPE.CIRCLE_SMALL,
     seatsSize: TABLE_SIZE.CIRCLE_SMALL,
   },
   {
     tableIndex: 1,
-    posX: 300,
-    posY: 0,
+    posX: 820,
+    posY: 80,
     tableType: TABLE_TYPE.CIRCLE_SMALL,
     seatsSize: TABLE_SIZE.CIRCLE_SMALL,
   },
   {
     tableIndex: 2,
-    posX: 0,
-    posY: 150,
+    posX: 330,
+    posY: 280,
+    tableType: TABLE_TYPE.CIRCLE_SMALL,
+    seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+  },
+  {
+    tableIndex: 3,
+    posX: 580,
+    posY: 280,
     tableType: TABLE_TYPE.CIRCLE_SMALL,
     seatsSize: TABLE_SIZE.CIRCLE_SMALL,
   },
 ];
+Array(9)
+  .fill(null)
+  .forEach((v: any, i: number) => {
+    SEATING_TABLE_POSITION[SEATING_PLAN.ITA].push(
+      {
+        tableIndex: (i + 1) * 4,
+        posX: 100,
+        posY: 80 + 360 * (i + 1),
+        tableType: TABLE_TYPE.CIRCLE_SMALL,
+        seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+      },
+      {
+        tableIndex: (i + 1) * 4 + 1,
+        posX: 820,
+        posY: 80 + 360 * (i + 1),
+        tableType: TABLE_TYPE.CIRCLE_SMALL,
+        seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+      },
+      {
+        tableIndex: (i + 1) * 4 + 2,
+        posX: 330,
+        posY: 280 + 360 * (i + 1),
+        tableType: TABLE_TYPE.CIRCLE_SMALL,
+        seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+      },
+      {
+        tableIndex: (i + 1) * 4 + 3,
+        posX: 580,
+        posY: 280 + 360 * (i + 1),
+        tableType: TABLE_TYPE.CIRCLE_SMALL,
+        seatsSize: TABLE_SIZE.CIRCLE_SMALL,
+      }
+    );
+  });
 
 export const SEATING_TABLE_FREE: {
   [key: string]: ISeatingData;
@@ -182,7 +250,7 @@ SEATING_TABLE_FREE[TABLE_TYPE.CIRCLE_LARGE] = {
   tableIndex: 0,
   posX: 0,
   posY: 0,
-  tableType: TABLE_TYPE.CIRCLE_SMALL,
+  tableType: TABLE_TYPE.CIRCLE_LARGE,
   seatsSize: TABLE_SIZE.CIRCLE_LARGE,
 };
 SEATING_TABLE_FREE[TABLE_TYPE.RECT_5] = {
