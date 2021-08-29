@@ -40,12 +40,14 @@ export default class extends Vue {
   }
 
   getUserName(name: string | number) {
-    return name
-      .toString()
-      .split(" ")
-      .map((c: string) => c[0]?.toUpperCase())
-      .slice(0, 2)
-      .join("");
+    return _.isNumber(name)
+      ? name.toString()
+      : name
+          .toString()
+          .split(" ")
+          .map((c: string) => c[0]?.toUpperCase())
+          .slice(0, 2)
+          .join("");
   }
 }
 </script>

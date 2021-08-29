@@ -29,9 +29,9 @@ export enum TABLE_TYPE {
   CIRCLE_SMALL = "circle_small",
   CIRCLE_LARGE = "circle_large",
   SQUARE_SMALL = "square_small",
-  RECT_5 = "react_5",
-  RECT_8 = "react_8",
-  RECT_12 = "react_12",
+  RECT_5 = "rect_5",
+  RECT_8 = "rect_8",
+  RECT_12 = "rect_12",
 }
 export enum TABLE_SIZE {
   CIRCLE_SMALL = 8,

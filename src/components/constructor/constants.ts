@@ -164,6 +164,7 @@ Array(9)
       }
     );
   });
+SEATING_TABLE_POSITION[SEATING_PLAN.ENG].splice(30, 99);
 SEATING_TABLE_POSITION[SEATING_PLAN.ITA] = [
   {
     tableIndex: 0,
@@ -228,6 +229,25 @@ Array(9)
       }
     );
   });
+SEATING_TABLE_POSITION[SEATING_PLAN.ITA].splice(30, 99);
+SEATING_TABLE_POSITION[SEATING_PLAN.ONE_TABLE] = [
+  {
+    tableIndex: 0,
+    posX: 460,
+    posY: 120,
+    tableType: TABLE_TYPE.RECT_12,
+    seatsSize: TABLE_SIZE.RECT_12,
+  },
+];
+SEATING_TABLE_POSITION[SEATING_PLAN.CIRCLE_TABLE] = [
+  {
+    tableIndex: 0,
+    posX: 460,
+    posY: 240,
+    tableType: TABLE_TYPE.CIRCLE_LARGE,
+    seatsSize: TABLE_SIZE.CIRCLE_LARGE,
+  },
+];
 
 export const SEATING_TABLE_FREE: {
   [key: string]: ISeatingData;

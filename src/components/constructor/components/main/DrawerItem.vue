@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { ISeatingData } from "@/components/constructor/types";
-import { Model, Prop } from "vue-property-decorator";
+import { Model, Prop, Watch } from "vue-property-decorator";
 import TableBase from "@/components/constructor/components/figures/TableBase.vue";
 import { DraggableEvent } from "@braks/revue-draggable";
 
@@ -27,8 +27,12 @@ export default class extends Vue {
   curPos = { x: 0, y: 0 };
   startPos = { x: 0, y: 0 };
 
-  beforeMount() {
-    this.startPos = { x: this.activeData.posX, y: this.activeData.posY };
+  @Watch("activeData", { immediate: true })
+  onActiveDataChanged(newVal: ISeatingData, oldVal: ISeatingData) {
+    if (newVal?.posX !== oldVal?.posX || newVal?.posY !== oldVal?.posY) {
+      this.startPos = { x: this.activeData.posX, y: this.activeData.posY };
+      this.curPos = { x: 0, y: 0 };
+    }
   }
 
   handleEnd(e: DraggableEvent) {

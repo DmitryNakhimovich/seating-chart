@@ -9,7 +9,7 @@
           :options="optionsPlan"
           :canClear="false"
           :canDeselect="false"
-          @change="dialogPlan = true"
+          @change="handlePlanChange"
         />
       </label>
     </v-col>
@@ -110,12 +110,22 @@ export default class extends Vue {
     this.tableSizeActive = this.activeData?.tableSize ?? 0;
   }
 
+  handlePlanChange() {
+    if (_.isEmpty(this.activeData.data)) {
+      this.dialogPlan = false;
+      _.delay(() => this.handlePlanDialog(true), 200);
+    } else {
+      this.dialogPlan = true;
+    }
+  }
   handlePlanDialog(isAccept = false) {
     if (isAccept) {
       this.activeData.seatingPlan = this.seatingPlanActive;
-      this.activeData.data = SEATING_TABLE_POSITION[
-        this.seatingPlanActive
-      ]?.slice(0, this.activeData.tableSize);
+      this.activeData.data =
+        SEATING_TABLE_POSITION[this.seatingPlanActive]?.slice(
+          0,
+          this.activeData.tableSize
+        ) ?? [];
     } else {
       this.seatingPlanActive = this.activeData.seatingPlan!;
     }
@@ -123,24 +133,18 @@ export default class extends Vue {
   }
   @debounce(200)
   handleTableSize() {
+    const curSeats =
+      _.cloneDeep(SEATING_TABLE_POSITION[this.activeData.seatingPlan!]) ?? [];
     if (
       _.isNumber(this.tableSizeActive) &&
       this.tableSizeActive >= MIN_TABLES &&
-      this.tableSizeActive <= MAX_TABLES
+      this.tableSizeActive <= curSeats.length
     ) {
       if (this.activeData.tableSize < this.tableSizeActive) {
         const newData = [];
-        for (
-          let idx = 0;
-          idx < SEATING_TABLE_POSITION[this.activeData.seatingPlan!]?.length;
-          idx += 1
-        ) {
+        for (let idx = 0; idx < curSeats.length; idx += 1) {
           if (!this.activeData.data?.some((d) => d.tableIndex === idx)) {
-            newData.push(
-              _.cloneDeep(
-                SEATING_TABLE_POSITION[this.activeData.seatingPlan!][idx]
-              )
-            );
+            newData.push(_.cloneDeep(curSeats[idx]));
           }
           if (
             newData.length ===

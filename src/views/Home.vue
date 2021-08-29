@@ -54,6 +54,23 @@
       </v-col>
     </v-row>
   </v-container>
+  <v-dialog
+    v-model="dialogError"
+    @click:outside="dialogError = false"
+    @keydown="dialogError = false"
+  >
+    <v-card>
+      <v-card-title>Произошла ошибка!</v-card-title>
+      <v-card-text
+        >Извините, в ходе работы приложения произошла непредвиденная ошибка...
+        Попробуйте еще раз</v-card-text
+      >
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn variant="outlined" @click="dialogError = false">Ок</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 
   <seating-constructor
     v-if="!isLoading && isSelected"
@@ -98,6 +115,7 @@ export default class extends Vue {
   activeData: IUserData | null = null;
   isLoading = true;
   isSelected = false;
+  dialogError = false;
 
   async beforeMount() {
     this.userData = await this.getUserData();
@@ -105,7 +123,12 @@ export default class extends Vue {
   }
 
   async getUserData() {
-    return await getConstructorDataList();
+    try {
+      return await getConstructorDataList();
+    } catch (e) {
+      this.dialogError = true;
+      return [];
+    }
   }
   getPlanTitle(data: IUserData) {
     return data.seatingPlan
