@@ -3,6 +3,7 @@
     <div class="sog-mod">
       <div
         class="sog-mod__item"
+        :data-sog-mod-active-side="activeData.activeSides"
         :data-sog-mod-type="activeData.tableType"
         :data-sog-mod-lock="Number(!!activeData.isLocked)"
         :data-sog-mod-item-set="Number(tableActive)"

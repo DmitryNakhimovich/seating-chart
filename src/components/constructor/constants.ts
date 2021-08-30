@@ -4,6 +4,7 @@ import {
   SCENE_TYPE,
   SEATING_PLAN,
   SEATING_TYPE,
+  TABLE_SIDES,
   TABLE_SIZE,
   TABLE_TYPE,
 } from "@/components/constructor/types";
@@ -99,13 +100,17 @@ export const TABLE_TYPE_OPTIONS = [
     value: TABLE_TYPE.CIRCLE_LARGE,
     text: "Круглый большой стол",
   },
+  // {
+  //   value: TABLE_TYPE.RECT_5,
+  //   text: "Прямоугольный малый стол",
+  // },
   {
-    value: TABLE_TYPE.RECT_5,
-    text: "Прямоугольный малый стол",
+    value: TABLE_TYPE.RECT_6_HOR,
+    text: "Прямоугольный стол горизонтальный",
   },
   {
-    value: TABLE_TYPE.RECT_8,
-    text: "Прямоугольный средний стол",
+    value: TABLE_TYPE.RECT_6_VERT,
+    text: "Прямоугольный стол вертикальный",
   },
   {
     value: TABLE_TYPE.RECT_12,
@@ -114,6 +119,7 @@ export const TABLE_TYPE_OPTIONS = [
 ];
 
 export const SEATING_TABLE_POSITION: ISeatingTablePosition = {};
+/* ENG */
 SEATING_TABLE_POSITION[SEATING_PLAN.ENG] = [
   {
     tableIndex: 0,
@@ -165,6 +171,7 @@ Array(9)
     );
   });
 SEATING_TABLE_POSITION[SEATING_PLAN.ENG].splice(30, 99);
+/* ITA */
 SEATING_TABLE_POSITION[SEATING_PLAN.ITA] = [
   {
     tableIndex: 0,
@@ -230,6 +237,7 @@ Array(9)
     );
   });
 SEATING_TABLE_POSITION[SEATING_PLAN.ITA].splice(30, 99);
+/* ONE RECT*/
 SEATING_TABLE_POSITION[SEATING_PLAN.ONE_TABLE] = [
   {
     tableIndex: 0,
@@ -239,13 +247,206 @@ SEATING_TABLE_POSITION[SEATING_PLAN.ONE_TABLE] = [
     seatsSize: TABLE_SIZE.RECT_12,
   },
 ];
+/* ONE CIRCLE */
 SEATING_TABLE_POSITION[SEATING_PLAN.CIRCLE_TABLE] = [
   {
     tableIndex: 0,
-    posX: 460,
-    posY: 240,
+    posX: 400,
+    posY: 180,
     tableType: TABLE_TYPE.CIRCLE_LARGE,
     seatsSize: TABLE_SIZE.CIRCLE_LARGE,
+  },
+];
+/* ROWS */
+SEATING_TABLE_POSITION[SEATING_PLAN.ROWS] = [
+  {
+    tableIndex: 0,
+    posX: 100,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_12,
+    seatsSize: TABLE_SIZE.RECT_12,
+  },
+  {
+    tableIndex: 1,
+    posX: 460,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_12,
+    seatsSize: TABLE_SIZE.RECT_12,
+  },
+  {
+    tableIndex: 2,
+    posX: 820,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_12,
+    seatsSize: TABLE_SIZE.RECT_12,
+  },
+];
+Array(9)
+  .fill(null)
+  .forEach((v: any, i: number) => {
+    SEATING_TABLE_POSITION[SEATING_PLAN.ROWS].push(
+      {
+        tableIndex: (i + 1) * 3,
+        posX: 100,
+        posY: 80 + 760 * (i + 1),
+        tableType: TABLE_TYPE.RECT_12,
+        seatsSize: TABLE_SIZE.RECT_12,
+      },
+      {
+        tableIndex: (i + 1) * 3 + 1,
+        posX: 460,
+        posY: 80 + 760 * (i + 1),
+        tableType: TABLE_TYPE.RECT_12,
+        seatsSize: TABLE_SIZE.RECT_12,
+      },
+      {
+        tableIndex: (i + 1) * 3 + 2,
+        posX: 820,
+        posY: 80 + 760 * (i + 1),
+        tableType: TABLE_TYPE.RECT_12,
+        seatsSize: TABLE_SIZE.RECT_12,
+      }
+    );
+  });
+SEATING_TABLE_POSITION[SEATING_PLAN.ROWS].splice(30, 99);
+/* CHAR G */
+SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_G] = [
+  {
+    tableIndex: 0,
+    posX: 100,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 1,
+    posX: 480,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 2,
+    posX: 100,
+    posY: 220,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
+  },
+];
+/* CHAR P */
+SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_P] = [
+  {
+    tableIndex: 0,
+    posX: 100,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 1,
+    posX: 480,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 2,
+    posX: 100,
+    posY: 220,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
+  },
+  {
+    tableIndex: 3,
+    posX: 720,
+    posY: 220,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
+  },
+];
+/* CHAR T */
+SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_T] = [
+  {
+    tableIndex: 0,
+    posX: 100,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 1,
+    posX: 480,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 2,
+    posX: 410,
+    posY: 220,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
+  },
+];
+/* CHAR W */
+SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_W] = [
+  {
+    tableIndex: 0,
+    posX: -50,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 1,
+    posX: 330,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 2,
+    posX: 710,
+    posY: 80,
+    tableType: TABLE_TYPE.RECT_6_HOR,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.TOP,
+  },
+  {
+    tableIndex: 3,
+    posX: 70,
+    posY: 210,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
+  },
+  {
+    tableIndex: 4,
+    posX: 460,
+    posY: 210,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
+  },
+  {
+    tableIndex: 4,
+    posX: 830,
+    posY: 210,
+    tableType: TABLE_TYPE.RECT_6_VERT,
+    seatsSize: TABLE_SIZE.RECT_6,
+    activeSides: TABLE_SIDES.LEFT_RIGHT,
   },
 ];
 
@@ -273,19 +474,21 @@ SEATING_TABLE_FREE[TABLE_TYPE.CIRCLE_LARGE] = {
   tableType: TABLE_TYPE.CIRCLE_LARGE,
   seatsSize: TABLE_SIZE.CIRCLE_LARGE,
 };
-SEATING_TABLE_FREE[TABLE_TYPE.RECT_5] = {
+SEATING_TABLE_FREE[TABLE_TYPE.RECT_6_HOR] = {
   tableIndex: 0,
   posX: 0,
   posY: 0,
-  tableType: TABLE_TYPE.RECT_5,
-  seatsSize: TABLE_SIZE.RECT_5,
+  tableType: TABLE_TYPE.RECT_6_HOR,
+  seatsSize: TABLE_SIZE.RECT_6,
+  activeSides: TABLE_SIDES.ALL,
 };
-SEATING_TABLE_FREE[TABLE_TYPE.RECT_8] = {
+SEATING_TABLE_FREE[TABLE_TYPE.RECT_6_VERT] = {
   tableIndex: 0,
   posX: 0,
   posY: 0,
-  tableType: TABLE_TYPE.RECT_8,
-  seatsSize: TABLE_SIZE.RECT_8,
+  tableType: TABLE_TYPE.RECT_6_VERT,
+  seatsSize: TABLE_SIZE.RECT_6,
+  activeSides: TABLE_SIDES.ALL,
 };
 SEATING_TABLE_FREE[TABLE_TYPE.RECT_12] = {
   tableIndex: 0,

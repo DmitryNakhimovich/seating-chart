@@ -110,22 +110,27 @@ export default class extends Vue {
     this.tableSizeActive = this.activeData?.tableSize ?? 0;
   }
 
-  handlePlanChange() {
+  async handlePlanChange() {
     if (_.isEmpty(this.activeData.data)) {
       this.dialogPlan = false;
-      _.delay(() => this.handlePlanDialog(true), 200);
+      await this.$nextTick();
+      this.handlePlanDialog(true);
     } else {
       this.dialogPlan = true;
     }
   }
   handlePlanDialog(isAccept = false) {
-    if (isAccept) {
-      this.activeData.seatingPlan = this.seatingPlanActive;
-      this.activeData.data =
+    const curSeats =
+      _.cloneDeep(
         SEATING_TABLE_POSITION[this.seatingPlanActive]?.slice(
           0,
           this.activeData.tableSize
-        ) ?? [];
+        )
+      ) ?? [];
+    if (isAccept) {
+      this.activeData.seatingPlan = this.seatingPlanActive;
+      this.activeData.data = curSeats;
+      this.activeData.tableSize = curSeats.length;
     } else {
       this.seatingPlanActive = this.activeData.seatingPlan!;
     }
