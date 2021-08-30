@@ -33,6 +33,7 @@
     <table-users-dialog
       :is-open="dialogUsers"
       :tableData="activeData"
+      :userData="userData"
       @dialog-close="dialogUsers = false"
     />
   </div>
@@ -40,8 +41,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { Model } from "vue-property-decorator";
-import { ISeatingData } from "@/components/constructor/types";
+import { Model, Prop } from "vue-property-decorator";
+import { ISeatingData, IUserData } from "@/components/constructor/types";
 import TableUsersDialog from "@/components/constructor/components/figures/TableUsersDialog.vue";
 
 @Options({
@@ -53,6 +54,7 @@ import TableUsersDialog from "@/components/constructor/components/figures/TableU
 })
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
+  @Prop() readonly userData!: IUserData;
   dialogUsers = false;
 
   handleLock(lock = false) {

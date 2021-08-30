@@ -6,13 +6,17 @@
     :disabled="!!activeData.isLocked"
     @stop="handleEnd"
   >
-    <table-base :tableData="activeData" :tableActive="tableActive" />
+    <table-base
+      :tableData="activeData"
+      :tableActive="tableActive"
+      :userData="userData"
+    />
   </Draggable>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { ISeatingData } from "@/components/constructor/types";
+import { ISeatingData, IUserData } from "@/components/constructor/types";
 import { Model, Prop, Watch } from "vue-property-decorator";
 import TableBase from "@/components/constructor/components/figures/TableBase.vue";
 import { DraggableEvent } from "@braks/revue-draggable";
@@ -24,6 +28,7 @@ import { DraggableEvent } from "@braks/revue-draggable";
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
   @Prop() readonly tableActive!: boolean;
+  @Prop() readonly userData!: IUserData;
   curPos = { x: 0, y: 0 };
   startPos = { x: 0, y: 0 };
 

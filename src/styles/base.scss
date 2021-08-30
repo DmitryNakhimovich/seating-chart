@@ -3,18 +3,17 @@
 
 $primary: #8bdcd5;
 @import "~bootstrap/scss/bootstrap";
-@import "~@vueform/multiselect/themes/default.css";
+
+:root {
+  --ms-option-bg-selected: #8bdcd5;
+  --ms-option-bg-selected-pointed: rgba(3, 116, 134, 0.9);
+}
 
 #app {
   font-family: "Tahoma", serif;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-:root {
-  --ms-option-bg-selected: #8bdcd5;
-  --ms-option-bg-selected-pointed: rgba(3, 116, 134, 0.9);
 }
 
 .main-bg {
@@ -35,12 +34,6 @@ $primary: #8bdcd5;
     }
   }
 }
-.multiselect {
-  &.is-active {
-    box-shadow: none !important;
-    border-color: #8bdcd5;
-  }
-}
 .guests-list {
   min-height: 42px;
   background-color: #efefef;
@@ -58,6 +51,7 @@ $primary: #8bdcd5;
 .d-none {
   display: none;
 }
+
 .revue-draggable-dragging {
   .sog-mod {
     .sog-mod__table {
@@ -66,6 +60,7 @@ $primary: #8bdcd5;
     }
   }
 }
+
 .v-card {
   .v-card-title,
   .v-card-text,
@@ -78,4 +73,14 @@ $primary: #8bdcd5;
 }
 .v-btn {
   border-color: #8bdcd5 !important;
+}
+#app,
+.v-dialog {
+  @import "~@vueform/multiselect/themes/default.scss";
+  .multiselect {
+    &.is-active {
+      box-shadow: none !important;
+      border-color: #8bdcd5;
+    }
+  }
 }

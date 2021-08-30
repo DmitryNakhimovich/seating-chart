@@ -8,6 +8,7 @@
           :key="table.tableIndex"
           :tableData="table"
           :tableActive="true"
+          :userData="activeData"
           @start="handleDragStart"
           @stop="handleDragEnd"
           @delete-table="handleTableDelete"

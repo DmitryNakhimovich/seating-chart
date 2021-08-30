@@ -33,12 +33,12 @@ export default class extends Vue {
   @Model("userData") activeData!: IUserData;
   @Ref() readonly constructorPDF!: any;
 
-  exportFilename = "heeheee";
+  exportFilename = "";
   pdfOptions = {
     margin: 0,
     image: {
-      type: "jpeg",
-      quality: 2,
+      type: "png",
+      quality: 90,
     },
     enableLinks: false,
     html2canvas: {
@@ -51,6 +51,10 @@ export default class extends Vue {
       orientation: "landscape",
     },
   };
+
+  beforeMount() {
+    this.exportFilename = this.activeData.title;
+  }
 
   downloadPDF() {
     this.constructorPDF.download();

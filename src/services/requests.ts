@@ -16,7 +16,12 @@ export const getGuestCategoryList = async () => {
   const res = await apiClient.get(GET_CATEGORY, {
     project,
   });
-  return res?.data?.map((d: any) => ({ id: d.id, name: d.label })) ?? [];
+  return [
+    {
+      id: -1,
+      name: "без категории",
+    },
+  ].concat(res?.data?.map((d: any) => ({ id: d.id, name: d.label })));
 };
 export const getGuestsListByCategory = async (category: number) => {
   const res = await apiClient.get(GET_CATEGORY_USERS, {

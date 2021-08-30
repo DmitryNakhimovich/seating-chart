@@ -11,6 +11,7 @@
         <table-seats :tableData="activeData" />
         <table-controls
           :tableData="activeData"
+          :userData="userData"
           @delete-table="$emit('delete-table', $event)"
         />
       </div>
@@ -23,7 +24,7 @@ import { Options, Vue } from "vue-class-component";
 import TableControls from "@/components/constructor/components/figures/TableControls.vue";
 import TableSeats from "@/components/constructor/components/figures/TableSeats.vue";
 import { Model, Prop } from "vue-property-decorator";
-import { ISeatingData } from "@/components/constructor/types";
+import { ISeatingData, IUserData } from "@/components/constructor/types";
 
 @Options({
   name: "TableBase",
@@ -33,5 +34,6 @@ import { ISeatingData } from "@/components/constructor/types";
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
   @Prop() readonly tableActive!: boolean;
+  @Prop() readonly userData!: IUserData;
 }
 </script>

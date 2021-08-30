@@ -75,8 +75,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { Model, Watch } from "vue-property-decorator";
-import { ISeatingData, IUser } from "@/components/constructor/types";
+import { Model, Prop, Watch } from "vue-property-decorator";
+import { ISeatingData, IUser, IUserData } from "@/components/constructor/types";
 import draggable from "vuedraggable";
 import {
   getGuestCategoryList,
@@ -95,17 +95,24 @@ import _ from "lodash";
 export default class extends Vue {
   @Model("tableData") activeData!: ISeatingData;
   @Model("isOpen") dialogUsers!: boolean;
-  guestsCategory = "";
+  @Prop() readonly userData!: IUserData;
+  guestsCategory: number | string = -1;
   guestsAll: IUser[] = [];
   guestsActive: IUser[] = [];
   isLoading = false;
 
   @Watch("guestsCategory")
-  @debounce(300)
+  @debounce(200)
   async onGuestsCategoryChange() {
     this.isLoading = true;
     this.guestsAll = await this.getGuests();
     this.isLoading = false;
+  }
+  @Watch("dialogUsers", { immediate: true })
+  onDialogChanged(newVal: boolean) {
+    if (newVal) {
+      this.onGuestsCategoryChange();
+    }
   }
 
   beforeMount() {
@@ -120,9 +127,12 @@ export default class extends Vue {
       return [];
     }
     const guests =
-      (await getGuestsListByCategory(parseInt(this.guestsCategory))) ?? [];
+      (await getGuestsListByCategory(
+        parseInt(this.guestsCategory.toString())
+      )) ?? [];
+    const usersAll = _.union(...this.userData.data.map((d) => d.users ?? []));
     return guests?.filter((g: IUser) =>
-      this.guestsActive?.every((ga: IUser) => ga.id !== g.id)
+      usersAll?.every((ga: any) => ga.id !== g.id)
     );
   }
 
@@ -142,7 +152,6 @@ export default class extends Vue {
     }
     this.dialogUsers = false;
     this.$emit("dialog-close");
-    this.onGuestsCategoryChange();
   }
 }
 </script>
