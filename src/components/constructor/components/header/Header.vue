@@ -38,5 +38,6 @@ export default class extends Vue {
   border-color: #ffffff;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: auto;
 }
 </style>

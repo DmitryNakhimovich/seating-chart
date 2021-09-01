@@ -1,4 +1,5 @@
 import {
+  ISceneData,
   ISeatingData,
   ISeatingTablePosition,
   SCENE_TYPE,
@@ -63,28 +64,6 @@ export const SEATING_PLAN_OPTIONS = [
   {
     value: SEATING_PLAN.ROWS,
     text: "Ряды",
-  },
-];
-export const SCENE_TYPE_OPTIONS = [
-  {
-    value: SCENE_TYPE.TOP,
-    text: "Сверху",
-  },
-  {
-    value: SCENE_TYPE.RIGHT,
-    text: "Справа",
-  },
-  // {
-  //   value: SCENE_TYPE.BOTTOM,
-  //   text: "Снизу",
-  // },
-  {
-    value: SCENE_TYPE.LEFT,
-    text: "Слева",
-  },
-  {
-    value: SCENE_TYPE.NONE,
-    text: "Отсутствует",
   },
 ];
 export const TABLE_TYPE_OPTIONS = [
@@ -497,3 +476,61 @@ SEATING_TABLE_FREE[TABLE_TYPE.RECT_12] = {
   tableType: TABLE_TYPE.RECT_12,
   seatsSize: TABLE_SIZE.RECT_12,
 };
+
+export const SCENE_POSITION: {
+  [key: string]: ISceneData;
+} = {};
+SCENE_POSITION[SCENE_TYPE.TOP] = {
+  posX: 400,
+  posY: 20,
+  rotate: 0,
+  sceneType: SCENE_TYPE.TOP,
+};
+SCENE_POSITION[SCENE_TYPE.RIGHT] = {
+  posX: 960,
+  posY: 270,
+  rotate: 90,
+  sceneType: SCENE_TYPE.RIGHT,
+};
+SCENE_POSITION[SCENE_TYPE.BOTTOM] = {
+  posX: 400,
+  posY: 600,
+  rotate: 0,
+  sceneType: SCENE_TYPE.BOTTOM,
+};
+SCENE_POSITION[SCENE_TYPE.LEFT] = {
+  posX: -120,
+  posY: 270,
+  rotate: -90,
+  sceneType: SCENE_TYPE.LEFT,
+};
+SCENE_POSITION[SCENE_TYPE.NONE] = {
+  posX: 0,
+  posY: 0,
+  rotate: 0,
+  sceneType: SCENE_TYPE.NONE,
+  isShow: false,
+};
+
+export const SCENE_TYPE_OPTIONS = [
+  {
+    value: SCENE_POSITION[SCENE_TYPE.TOP],
+    text: "Сверху",
+  },
+  {
+    value: SCENE_POSITION[SCENE_TYPE.RIGHT],
+    text: "Справа",
+  },
+  {
+    value: SCENE_POSITION[SCENE_TYPE.BOTTOM],
+    text: "Снизу",
+  },
+  {
+    value: SCENE_POSITION[SCENE_TYPE.LEFT],
+    text: "Слева",
+  },
+  {
+    value: SCENE_POSITION[SCENE_TYPE.NONE],
+    text: "Отсутствует",
+  },
+];

@@ -7,7 +7,7 @@ export interface IUserData {
   seatingPlan?: SEATING_PLAN;
   tableType?: TABLE_TYPE;
   tableSize: number;
-  sceneType: SCENE_TYPE;
+  sceneData: ISceneData;
   data: ISeatingData[];
 }
 export enum SEATING_TYPE {
@@ -70,6 +70,15 @@ export interface ISeatingData {
   isLocked?: boolean;
   users?: IUser[];
   activeSides?: TABLE_SIDES;
+  [key: string]: any;
+}
+export interface ISceneData {
+  posX: number;
+  posY: number;
+  rotate: number;
+  sceneType: SCENE_TYPE;
+  isLocked?: boolean;
+  isShow?: boolean;
   [key: string]: any;
 }
 export interface IUser {

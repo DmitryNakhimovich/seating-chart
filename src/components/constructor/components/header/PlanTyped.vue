@@ -31,7 +31,7 @@
       <label class="form-label-group">
         <span class="header-input-title">Сцена</span>
         <va-select
-          v-model="activeData.sceneType"
+          v-model="activeData.sceneData"
           label="text"
           :options="optionsScene"
           :canClear="false"

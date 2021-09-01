@@ -1615,7 +1615,6 @@
   }
 }
 .sog-mod__scene {
-  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1626,17 +1625,12 @@
   span {
     font-size: 18px;
   }
-  &[data-sog-scene-type="top"] {
-    transform: translate(0px, 0px) translate(400px, 20px);
-  }
-  &[data-sog-scene-type="bottom"] {
-    transform: translate(0px, 0px) translate(400px, 600px);
-  }
+
   &[data-sog-scene-type="right"] {
-    transform: translate(0px, 0px) translate(960px, 270px) rotate(90deg);
+    transform: rotate(90deg);
   }
   &[data-sog-scene-type="left"] {
-    transform: translate(0px, 0px) translate(-120px, 270px) rotate(-90deg);
+    transform: rotate(-90deg);
   }
   &[data-sog-scene-type="none"] {
     display: none;

@@ -77,7 +77,6 @@
     :user-data="activeData"
     @delete="handleDelete"
     @save="handleSave"
-    @view="$emit('view')"
     @revert="handleRevert"
   />
 </template>
@@ -99,6 +98,7 @@ import {
   putConstructorData,
 } from "@/services/requests";
 import {
+  SCENE_POSITION,
   SEATING_PLAN_OPTIONS,
   SEATING_TYPE_OPTIONS,
 } from "@/components/constructor/constants";
@@ -152,7 +152,7 @@ export default class extends Vue {
       seatingPlan: SEATING_PLAN.ENG,
       tableType: TABLE_TYPE.SQUARE_SMALL,
       tableSize: 0,
-      sceneType: SCENE_TYPE.TOP,
+      sceneData: SCENE_POSITION[SCENE_TYPE.TOP],
       data: [],
     };
   }

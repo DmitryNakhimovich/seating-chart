@@ -8,9 +8,6 @@
         <v-btn class="footer-btn" variant="outlined" @click="$emit('delete')"
           >Удалить</v-btn
         >
-        <v-btn class="footer-btn" variant="outlined" @click="$emit('view')"
-          >Просмотреть</v-btn
-        >
         <v-btn class="footer-btn" variant="outlined" @click="$emit('save')"
           >Сохранить</v-btn
         >
@@ -24,7 +21,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({
   name: "Footer",
-  emits: ["delete", "save", "view", "revert"],
+  emits: ["delete", "save", "revert"],
 })
 export default class extends Vue {}
 </script>

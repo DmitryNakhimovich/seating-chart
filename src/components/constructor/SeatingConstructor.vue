@@ -6,7 +6,6 @@
   <Footer
     @delete="$emit('delete')"
     @save="$emit('save')"
-    @view="$emit('view')"
     @revert="$emit('revert')"
   />
 </template>
@@ -26,7 +25,7 @@ import Footer from "@/components/constructor/components/footer/Footer.vue";
     Main,
     Header,
   },
-  emits: ["delete", "save", "view", "revert"],
+  emits: ["delete", "save", "revert"],
 })
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;

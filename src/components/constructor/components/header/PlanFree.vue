@@ -21,7 +21,7 @@
       <label class="form-label-group">
         <span class="header-input-title">Сцена</span>
         <va-select
-          v-model="activeData.sceneType"
+          v-model="activeData.sceneData"
           label="text"
           :options="optionsScene"
           :canClear="false"
@@ -92,7 +92,7 @@ export default class extends Vue {
 <style scoped lang="scss">
 .btn-add {
   background-color: white;
-  height: 40px;
+  height: 40px !important;
 }
 .btn-col {
   display: flex;

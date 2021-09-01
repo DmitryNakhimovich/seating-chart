@@ -2,7 +2,11 @@
   <div class="drawer-container">
     <panZoom ref="panZoom" selector="#drawer" :options="panZoomOptions">
       <div id="drawer" class="drawer-wrapper">
-        <scene :type="activeData.sceneType" />
+        <scene
+          :sceneData="activeData.sceneData"
+          @start="handleDragStart"
+          @stop="handleDragEnd"
+        />
         <drawer-item
           v-for="table in activeData.data"
           :key="table.tableIndex"
@@ -37,6 +41,8 @@ export default class extends Vue {
     initialX: 0,
     initialY: 0,
     autocenter: false,
+    maxZoom: 2,
+    bounds: false,
   };
 
   handleDragStart() {
