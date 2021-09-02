@@ -1,7 +1,6 @@
 import {
   ISceneData,
   ISeatingData,
-  ISeatingTablePosition,
   SCENE_TYPE,
   SEATING_PLAN,
   SEATING_TYPE,
@@ -92,12 +91,18 @@ export const TABLE_TYPE_OPTIONS = [
     text: "Прямоугольный стол вертикальный",
   },
   {
-    value: TABLE_TYPE.RECT_12,
-    text: "Прямоугольный большой стол",
+    value: TABLE_TYPE.RECT_12_HOR,
+    text: "Прямоугольный большой стол горизонтальный",
+  },
+  {
+    value: TABLE_TYPE.RECT_12_VERT,
+    text: "Прямоугольный большой стол вертикальный",
   },
 ];
 
-export const SEATING_TABLE_POSITION: ISeatingTablePosition = {};
+export const SEATING_TABLE_POSITION: {
+  [key: string]: ISeatingData[];
+} = {};
 /* ENG */
 SEATING_TABLE_POSITION[SEATING_PLAN.ENG] = [
   {
@@ -222,7 +227,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.ONE_TABLE] = [
     tableIndex: 0,
     posX: 460,
     posY: 120,
-    tableType: TABLE_TYPE.RECT_12,
+    tableType: TABLE_TYPE.RECT_12_VERT,
     seatsSize: TABLE_SIZE.RECT_12,
   },
 ];
@@ -242,21 +247,21 @@ SEATING_TABLE_POSITION[SEATING_PLAN.ROWS] = [
     tableIndex: 0,
     posX: 100,
     posY: 80,
-    tableType: TABLE_TYPE.RECT_12,
+    tableType: TABLE_TYPE.RECT_12_VERT,
     seatsSize: TABLE_SIZE.RECT_12,
   },
   {
     tableIndex: 1,
     posX: 460,
     posY: 80,
-    tableType: TABLE_TYPE.RECT_12,
+    tableType: TABLE_TYPE.RECT_12_VERT,
     seatsSize: TABLE_SIZE.RECT_12,
   },
   {
     tableIndex: 2,
     posX: 820,
     posY: 80,
-    tableType: TABLE_TYPE.RECT_12,
+    tableType: TABLE_TYPE.RECT_12_VERT,
     seatsSize: TABLE_SIZE.RECT_12,
   },
 ];
@@ -268,21 +273,21 @@ Array(9)
         tableIndex: (i + 1) * 3,
         posX: 100,
         posY: 80 + 760 * (i + 1),
-        tableType: TABLE_TYPE.RECT_12,
+        tableType: TABLE_TYPE.RECT_12_VERT,
         seatsSize: TABLE_SIZE.RECT_12,
       },
       {
         tableIndex: (i + 1) * 3 + 1,
         posX: 460,
         posY: 80 + 760 * (i + 1),
-        tableType: TABLE_TYPE.RECT_12,
+        tableType: TABLE_TYPE.RECT_12_VERT,
         seatsSize: TABLE_SIZE.RECT_12,
       },
       {
         tableIndex: (i + 1) * 3 + 2,
         posX: 820,
         posY: 80 + 760 * (i + 1),
-        tableType: TABLE_TYPE.RECT_12,
+        tableType: TABLE_TYPE.RECT_12_VERT,
         seatsSize: TABLE_SIZE.RECT_12,
       }
     );
@@ -469,11 +474,18 @@ SEATING_TABLE_FREE[TABLE_TYPE.RECT_6_VERT] = {
   seatsSize: TABLE_SIZE.RECT_6,
   activeSides: TABLE_SIDES.ALL,
 };
-SEATING_TABLE_FREE[TABLE_TYPE.RECT_12] = {
+SEATING_TABLE_FREE[TABLE_TYPE.RECT_12_VERT] = {
   tableIndex: 0,
   posX: 0,
   posY: 0,
-  tableType: TABLE_TYPE.RECT_12,
+  tableType: TABLE_TYPE.RECT_12_VERT,
+  seatsSize: TABLE_SIZE.RECT_12,
+};
+SEATING_TABLE_FREE[TABLE_TYPE.RECT_12_HOR] = {
+  tableIndex: 0,
+  posX: 0,
+  posY: 0,
+  tableType: TABLE_TYPE.RECT_12_HOR,
   seatsSize: TABLE_SIZE.RECT_12,
 };
 

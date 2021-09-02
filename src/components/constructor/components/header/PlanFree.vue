@@ -56,7 +56,10 @@ import _ from "lodash";
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;
   optionsType = TABLE_TYPE_OPTIONS;
-  optionsScene = SCENE_TYPE_OPTIONS;
+
+  get optionsScene() {
+    return _.cloneDeep(SCENE_TYPE_OPTIONS);
+  }
 
   handleAddTable() {
     if (

@@ -152,7 +152,7 @@ export default class extends Vue {
       seatingPlan: SEATING_PLAN.ENG,
       tableType: TABLE_TYPE.SQUARE_SMALL,
       tableSize: 0,
-      sceneData: SCENE_POSITION[SCENE_TYPE.TOP],
+      sceneData: _.cloneDeep(SCENE_POSITION[SCENE_TYPE.TOP]),
       data: [],
     };
   }

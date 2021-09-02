@@ -31,7 +31,8 @@ export enum TABLE_TYPE {
   SQUARE_SMALL = "square_small",
   RECT_6_VERT = "rect_6_vert",
   RECT_6_HOR = "rect_6_hor",
-  RECT_12 = "rect_12",
+  RECT_12_HOR = "rect_12_hor",
+  RECT_12_VERT = "rect_12_vert",
 }
 export enum TABLE_SIZE {
   CIRCLE_SMALL = 8,
@@ -88,7 +89,4 @@ export interface IUser {
   isLocked?: boolean;
   isEmpty?: boolean;
   [key: string]: any;
-}
-export interface ISeatingTablePosition {
-  [key: string]: ISeatingData[];
 }

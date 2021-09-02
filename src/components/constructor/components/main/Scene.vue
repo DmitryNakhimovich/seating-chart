@@ -40,8 +40,11 @@ export default class extends Vue {
 
   handleEnd(e: DraggableEvent) {
     this.curPos = { x: e.data.x, y: e.data.y };
-    this.activeData.posX = this.startPos.x + this.curPos.x;
-    this.activeData.posY = this.startPos.y + this.curPos.y;
+    this.activeData = {
+      ...this.activeData,
+      posX: this.startPos.x + this.curPos.x,
+      posY: this.startPos.y + this.curPos.y,
+    };
   }
 }
 </script>

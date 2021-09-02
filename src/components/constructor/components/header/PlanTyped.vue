@@ -82,11 +82,13 @@ import { debounce } from "@/plugins/helpers";
 export default class extends Vue {
   @Model("userData") activeData!: IUserData;
   optionsPlan = SEATING_PLAN_OPTIONS;
-  optionsScene = SCENE_TYPE_OPTIONS;
   dialogPlan = false;
   seatingPlanActive: SEATING_PLAN = SEATING_PLAN.ENG;
   tableSizeActive = 0;
 
+  get optionsScene() {
+    return _.cloneDeep(SCENE_TYPE_OPTIONS);
+  }
   get classRulesTitle() {
     return [
       !_.isNumber(this.activeData.tableSize) || this.activeData.tableSize < 0

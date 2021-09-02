@@ -29,6 +29,15 @@
         title="Очистить"
         @click="$emit('delete-table', activeData.tableIndex)"
       ></span>
+      <span
+        v-if="isRotatable && !activeData.isLocked"
+        data-sog-mod-action="rotate"
+        class="sog-mod__table-icon-btn icon-sog-mod__rotate"
+        title="Повернуть стол"
+        @click="handleRotate"
+      >
+        <v-icon>mdi-rotate-right</v-icon>
+      </span>
     </div>
     <table-users-dialog
       :is-open="dialogUsers"
@@ -42,7 +51,11 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { Model, Prop } from "vue-property-decorator";
-import { ISeatingData, IUserData } from "@/components/constructor/types";
+import {
+  ISeatingData,
+  IUserData,
+  TABLE_TYPE,
+} from "@/components/constructor/types";
 import TableUsersDialog from "@/components/constructor/components/figures/TableUsersDialog.vue";
 
 @Options({
@@ -57,8 +70,21 @@ export default class extends Vue {
   @Prop() readonly userData!: IUserData;
   dialogUsers = false;
 
+  get isRotatable() {
+    return (
+      this.activeData.tableType === TABLE_TYPE.RECT_12_HOR ||
+      this.activeData.tableType === TABLE_TYPE.RECT_12_VERT
+    );
+  }
   handleLock(lock = false) {
     this.activeData.isLocked = lock;
+  }
+  handleRotate() {
+    if (this.activeData.tableType === TABLE_TYPE.RECT_12_HOR) {
+      this.activeData.tableType = TABLE_TYPE.RECT_12_VERT;
+    } else {
+      this.activeData.tableType = TABLE_TYPE.RECT_12_HOR;
+    }
   }
 }
 </script>
