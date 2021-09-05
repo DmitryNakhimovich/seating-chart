@@ -1193,7 +1193,10 @@
     }
     //left-right active
     &[data-sog-mod-active-side="1.0.1.0"] {
+      height: 380px;
+      overflow: hidden;
       & .sog-mod__seats {
+        transform: translate(0, -50px);
         & div {
           &:nth-child(1),
           &:nth-child(2),

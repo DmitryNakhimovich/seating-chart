@@ -314,7 +314,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_G] = [
   {
     tableIndex: 2,
     posX: 100,
-    posY: 220,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,
@@ -341,7 +341,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_P] = [
   {
     tableIndex: 2,
     posX: 100,
-    posY: 220,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,
@@ -349,7 +349,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_P] = [
   {
     tableIndex: 3,
     posX: 720,
-    posY: 220,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,
@@ -376,7 +376,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_T] = [
   {
     tableIndex: 2,
     posX: 410,
-    posY: 220,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,
@@ -411,7 +411,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_W] = [
   {
     tableIndex: 3,
     posX: 70,
-    posY: 210,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,
@@ -419,7 +419,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_W] = [
   {
     tableIndex: 4,
     posX: 460,
-    posY: 210,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,
@@ -427,7 +427,7 @@ SEATING_TABLE_POSITION[SEATING_PLAN.CHAR_W] = [
   {
     tableIndex: 4,
     posX: 830,
-    posY: 210,
+    posY: 265,
     tableType: TABLE_TYPE.RECT_6_VERT,
     seatsSize: TABLE_SIZE.RECT_6,
     activeSides: TABLE_SIDES.LEFT_RIGHT,

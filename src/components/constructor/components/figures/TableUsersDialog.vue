@@ -48,7 +48,7 @@
             >
               <template #item="{ element, index }">
                 <div class="list-group-item guests-list-item">
-                  {{ index }}. {{ element.name }}
+                  {{ index + 1 }}. {{ element.name }}
                   <span
                     class="icon-sog-mod__remote"
                     title="Очистить"
