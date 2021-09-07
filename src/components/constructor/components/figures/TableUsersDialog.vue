@@ -130,7 +130,10 @@ export default class extends Vue {
       (await getGuestsListByCategory(
         parseInt(this.guestsCategory.toString())
       )) ?? [];
-    const usersAll = _.union(...this.userData.data.map((d) => d.users ?? []));
+    const usersAll = _.union(
+      ...this.userData.data.map((d) => d.users ?? []),
+      this.guestsActive
+    );
     return guests?.filter((g: IUser) =>
       usersAll?.every((ga: any) => ga.id !== g.id)
     );
